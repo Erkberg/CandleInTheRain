@@ -7,4 +7,5 @@ public class GameRefs : MonoBehaviour
     public PlayerMovement playerMovement;
     public PlayerInteraction playerInteraction;
     public PlayerCandle playerCandle;
+    public ParticleSystem rain;
 }

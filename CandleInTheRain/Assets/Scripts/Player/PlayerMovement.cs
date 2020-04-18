@@ -11,10 +11,12 @@ public class PlayerMovement : MonoBehaviour
     public Transform body;
 
     private Transform mainCam;
+    private Vector3 initialPosition;
 
     private void Awake() 
     {
         mainCam = Game.inst.cams.mainCam.transform;
+        initialPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -44,5 +46,10 @@ public class PlayerMovement : MonoBehaviour
         Vector3 lookPosition = lookTarget.position;
         lookPosition.y = transform.position.y;
         transform.LookAt(lookPosition, Vector3.up);
+    }
+
+    public void ResetPosition()
+    {
+        transform.position = initialPosition;
     }
 }

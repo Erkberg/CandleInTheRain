@@ -15,6 +15,7 @@ public class CandleParticle : MonoBehaviour
     public float healthDecreaseMultiplier = 0.5f;
     public float healthIncreaseMultiplier = 0.2f;
     public ParticleSystem flame;
+    public ParticleSystem smoke;
     public CandleState currentState = CandleState.Safe;
 
     private float initialEmission;
@@ -50,6 +51,7 @@ public class CandleParticle : MonoBehaviour
             {
                 currentHealth = 0f;
                 SetState(CandleState.Extinct);
+                Game.inst.OnCandleExtinct();
             }                
         }
     }
@@ -67,8 +69,14 @@ public class CandleParticle : MonoBehaviour
     }
 
     public void UpgradeCandle()
-    {
+    {        
         initialEmission += 100f;
+        flame.Emit((int)(initialEmission * 2));
         flame.startLifetime += 0.05f;
+    }
+
+    public void EmitSmoke()
+    {
+        smoke.Emit(20);
     }
 }

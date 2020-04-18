@@ -59,7 +59,12 @@ public class Game : MonoBehaviour
     private IEnumerator CandleExtinctSequence()
     {
         SetPlayerActive(false);
+        cams.SetCamState(GameCams.CamState.CandleFocus);
         yield return new WaitForSeconds(2f);
+        refs.playerCandle.candleParticle.EmitSmoke();
+        yield return new WaitForSeconds(2f);
+        ui.SetGameOverScreenActive(true);
+        refs.playerMovement.ResetPosition();
     }
 
     public IEnumerator OnFinishInteractionArea(InteractionArea interactionArea)
@@ -74,7 +79,16 @@ public class Game : MonoBehaviour
         yield return new WaitForSeconds(2f);
         refs.playerCandle.UpgradeCandle();
         ui.OnUpgradeCandle();
+        refs.rain.emissionRate -= 1000f;
         yield return new WaitForSeconds(3f);
         OnBackButtonPressed();
+    }
+
+    public void OnRelightButtonClicked()
+    {
+        ui.SetGameOverScreenActive(false);
+        SetPlayerActive(true);
+        refs.playerCandle.ResetCandle();
+        cams.SetCamState(GameCams.CamState.ThirdPersonFollow);
     }
 }

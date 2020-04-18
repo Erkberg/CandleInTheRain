@@ -58,6 +58,12 @@ public class PlayerCandle : MonoBehaviour
         candleParticle.UpgradeCandle();
         upperHandLowerY += 0.04f;
         burnJumpOffset -= 0.04f;
+        ResetCandle();
+    }
+
+    public void ResetCandle()
+    {
+        upperHand.localPosition = new Vector3(upperHand.localPosition.x, 0f, upperHand.localPosition.z);
         candleParticle.LightAnew();
     }
 }

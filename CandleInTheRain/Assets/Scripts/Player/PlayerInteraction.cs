@@ -24,6 +24,14 @@ public class PlayerInteraction : MonoBehaviour
             currentInteractionArea.OnPlayerEnterTrigger();
     }
 
+    public void LeaveInteractionArea()
+    {
+        if (currentInteractionArea)
+            currentInteractionArea.isActive = false;
+
+        isInsideArea = false;
+    }
+
     private void OnTriggerEnter(Collider other) 
     {
         InteractionArea interactionArea = other.GetComponent<InteractionArea>();

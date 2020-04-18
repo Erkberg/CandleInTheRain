@@ -10,6 +10,7 @@ public class GameUI : MonoBehaviour
     public TextMeshProUGUI maintext;
     public TextMeshProUGUI subtext;
     public RectTransform candleGreenArea;
+    public GameObject gameOverScreen;
 
     private void Update()
     {
@@ -39,5 +40,10 @@ public class GameUI : MonoBehaviour
     public void OnUpgradeCandle()
     {
         candleGreenArea.sizeDelta -= new Vector2(0f, 20f);
+    }
+
+    public void SetGameOverScreenActive(bool active)
+    {
+        gameOverScreen.SetActive(active);
     }
 }
