@@ -61,4 +61,20 @@ public class Game : MonoBehaviour
         SetPlayerActive(false);
         yield return new WaitForSeconds(2f);
     }
+
+    public IEnumerator OnFinishInteractionArea(InteractionArea interactionArea)
+    {
+        yield return interactionArea.OnFinish();
+        yield return CandleUpgradeSequence();
+    }
+
+    private IEnumerator CandleUpgradeSequence()
+    {
+        cams.SetCamState(GameCams.CamState.CandleFocus);
+        yield return new WaitForSeconds(2f);
+        refs.playerCandle.UpgradeCandle();
+        ui.OnUpgradeCandle();
+        yield return new WaitForSeconds(3f);
+        OnBackButtonPressed();
+    }
 }

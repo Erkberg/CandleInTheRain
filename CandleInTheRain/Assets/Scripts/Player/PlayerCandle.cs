@@ -16,6 +16,7 @@ public class PlayerCandle : MonoBehaviour
     [Header("Bounds")]
     public float upperhandUpperY = 0.11f;
     public float upperHandLowerY = -0.1f;
+    public float upperHandMaxY = 0.15f;
     public float burnJumpOffset = 0.2f;
 
     private void Update()
@@ -35,11 +36,11 @@ public class PlayerCandle : MonoBehaviour
             upperHand.position += new Vector3(0f, moveUpSpeed * Random.Range(1f - moveUpSpeedRandomizer, 1f + moveUpSpeedRandomizer) * Time.deltaTime, 0f);
         }
 
-        if(upperHand.transform.localPosition.y > upperhandUpperY)
+        if(upperHand.localPosition.y > upperhandUpperY)
         {
             candleParticle.SetState(CandleParticle.CandleState.Decreasing);
         }
-        else if(upperHand.transform.localPosition.y < upperHandLowerY)
+        else if(upperHand.localPosition.y < upperHandLowerY)
         {
             upperHand.position += new Vector3(0f, burnJumpOffset, 0f);
         }
@@ -47,5 +48,16 @@ public class PlayerCandle : MonoBehaviour
         {
             candleParticle.SetState(CandleParticle.CandleState.Safe);
         }
+
+        if (upperHand.localPosition.y > upperHandMaxY)
+            upperHand.localPosition = new Vector3(upperHand.localPosition.x, upperHandMaxY, upperHand.localPosition.z);
+    }
+
+    public void UpgradeCandle()
+    {
+        candleParticle.UpgradeCandle();
+        upperHandLowerY += 0.04f;
+        burnJumpOffset -= 0.04f;
+        candleParticle.LightAnew();
     }
 }

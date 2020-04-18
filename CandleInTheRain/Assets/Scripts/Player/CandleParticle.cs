@@ -12,8 +12,8 @@ public class CandleParticle : MonoBehaviour
     }
 
     public float currentHealth = 1f;
-    public float healthDecreaseMultiplier = 1f;
-    public float healthIncreaseMultiplier = 0.33f;
+    public float healthDecreaseMultiplier = 0.5f;
+    public float healthIncreaseMultiplier = 0.2f;
     public ParticleSystem flame;
     public CandleState currentState = CandleState.Safe;
 
@@ -62,6 +62,13 @@ public class CandleParticle : MonoBehaviour
         
     public void LightAnew()
     {
+        currentHealth = 1f;
         currentState = CandleState.Safe;
+    }
+
+    public void UpgradeCandle()
+    {
+        initialEmission += 100f;
+        flame.startLifetime += 0.05f;
     }
 }

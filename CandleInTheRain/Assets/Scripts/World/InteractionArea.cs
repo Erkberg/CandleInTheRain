@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InteractionArea : MonoBehaviour
 {
+    public int id = 1;
     public string enterText;
     public GameCams.CamState camState;
     public Transform playerParkingPosition;
@@ -35,9 +36,10 @@ public class InteractionArea : MonoBehaviour
         isActive = true;
     }
 
-    public void OnFinish()
+    public IEnumerator OnFinish()
     {
         isFinished = true;
         particle.startColor = new Color(0f, 0.5f, 0f);
+        yield return null;
     }
 }

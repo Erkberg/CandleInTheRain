@@ -9,6 +9,7 @@ public class GameUI : MonoBehaviour
     public GameObject backButtonObject;
     public TextMeshProUGUI maintext;
     public TextMeshProUGUI subtext;
+    public RectTransform candleGreenArea;
 
     private void Update()
     {
@@ -33,5 +34,10 @@ public class GameUI : MonoBehaviour
     public void SetBackButtonActive(bool active)
     {
         backButtonObject.SetActive(active);
+    }
+
+    public void OnUpgradeCandle()
+    {
+        candleGreenArea.sizeDelta -= new Vector2(0f, 20f);
     }
 }

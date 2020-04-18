@@ -4,11 +4,31 @@ using UnityEngine;
 
 public class Item : MonoBehaviour
 {
-    public int itemID = 0;
+    public ItemData itemData;
+    public InteractionArea interactionArea;
 
-
-    public void OnInteract()
+    private void Awake()
     {
+        if (!interactionArea)
+            interactionArea = GetComponentInParent<InteractionArea>();
+    }
 
+    private void OnMouseDown()
+    {
+        if(interactionArea.isActive)
+            Game.inst.items.OnInteractWithItem(this);
+    }
+
+    private void OnMouseEnter()
+    {
+        Debug.Log("on mouse enter");
+        if (interactionArea.isActive)
+            Game.inst.ui.ShowText(itemData.name, "Click to interact");
+    }
+
+    private void OnMouseExit()
+    {
+        if (interactionArea.isActive)
+            Game.inst.ui.HideText();
     }
 }
