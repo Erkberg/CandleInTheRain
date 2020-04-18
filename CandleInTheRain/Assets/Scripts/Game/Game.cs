@@ -13,5 +13,19 @@ public class Game : MonoBehaviour
     private void Awake() 
     {
         inst = this;
+
+        SetCursorState();
+    }
+
+    private void Update() 
+    {
+        if(Input.GetMouseButtonDown(0))
+            SetCursorState();
+    }
+
+    private void SetCursorState()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Confined;
     }
 }
