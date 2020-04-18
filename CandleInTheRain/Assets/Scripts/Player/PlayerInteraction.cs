@@ -4,11 +4,24 @@ using UnityEngine;
 
 public class PlayerInteraction : MonoBehaviour
 {
+    public bool interactionEnabled = true;
+
     private InteractionArea currentInteractionArea;
+    private bool isInsideArea = false;
 
     private void Update() 
     {
-        
+        if(Input.GetMouseButtonDown(0) && currentInteractionArea)
+        {
+            currentInteractionArea.OnPlayerEnter();
+            isInsideArea = true;
+        }
+    }
+
+    public void ReEnterInteractionArea()
+    {
+        if (currentInteractionArea)
+            currentInteractionArea.OnPlayerEnterTrigger();
     }
 
     private void OnTriggerEnter(Collider other) 
@@ -18,7 +31,7 @@ public class PlayerInteraction : MonoBehaviour
         if(interactionArea)
         {
             currentInteractionArea = interactionArea;
-            currentInteractionArea.OnPlayerEnter();
+            currentInteractionArea.OnPlayerEnterTrigger();
         }
     }
 
@@ -26,9 +39,9 @@ public class PlayerInteraction : MonoBehaviour
     {
         InteractionArea interactionArea = other.GetComponent<InteractionArea>();
 
-        if(interactionArea && interactionArea == currentInteractionArea)
+        if (interactionArea && interactionArea == currentInteractionArea)
         {
-            currentInteractionArea.OnPlayerExit();
+            currentInteractionArea.OnPlayerExitTrigger();
             currentInteractionArea = null;            
         }
     }

@@ -34,4 +34,15 @@ public class PlayerMovement : MonoBehaviour
         if (movement != Vector3.zero) 
             body.rotation = Quaternion.Slerp(body.rotation, Quaternion.LookRotation(movement), rotationSpeed);
     }
+
+    public void MoveTowardsPosition(Transform target, Transform lookTarget)
+    {
+        Vector3 targetPosition = target.position;
+        targetPosition.y = transform.position.y;
+        transform.position = targetPosition;
+
+        Vector3 lookPosition = lookTarget.position;
+        lookPosition.y = transform.position.y;
+        transform.LookAt(lookPosition, Vector3.up);
+    }
 }

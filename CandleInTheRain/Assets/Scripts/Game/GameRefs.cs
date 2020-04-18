@@ -5,4 +5,5 @@ using UnityEngine;
 public class GameRefs : MonoBehaviour
 {
     public PlayerMovement playerMovement;
+    public PlayerInteraction playerInteraction;
 }

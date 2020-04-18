@@ -4,13 +4,40 @@ using UnityEngine;
 
 public class InteractionArea : MonoBehaviour
 {
-    public void OnPlayerEnter()
-    {
+    public string enterText;
+    public GameCams.CamState camState;
+    public Transform playerParkingPosition;
+    public Transform playerLookTarget;
+    public bool isActive = false;
+    public bool isFinished = false;
+    public ParticleSystem particle;
 
+    private void Awake()
+    {
+        if (!playerLookTarget)
+            playerLookTarget = transform;
     }
 
-    public void OnPlayerExit()
+    public void OnPlayerEnterTrigger()
     {
-        
+        Game.inst.ui.ShowText(enterText, "Press left mousebutton to inspect");
+    }
+
+    public void OnPlayerExitTrigger()
+    {
+        Game.inst.ui.HideText();
+    }
+
+    public void OnPlayerEnter()
+    {        
+        Game.inst.OnEnterInteractionArea(camState);
+        Game.inst.refs.playerMovement.MoveTowardsPosition(playerParkingPosition, playerLookTarget);
+        isActive = true;
+    }
+
+    public void OnFinish()
+    {
+        isFinished = true;
+        particle.startColor = new Color(0f, 0.5f, 0f);
     }
 }
