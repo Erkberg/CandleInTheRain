@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 1f;
     public float rotationSpeed = 1f;
     public Transform body;
+    public Animator animator;
 
     private Transform mainCam;
     private Vector3 initialPosition;
@@ -35,6 +36,8 @@ public class PlayerMovement : MonoBehaviour
 
         if (movement != Vector3.zero) 
             body.rotation = Quaternion.Slerp(body.rotation, Quaternion.LookRotation(movement), rotationSpeed);
+
+        animator.SetBool("walking", movement != Vector3.zero);
     }
 
     public void MoveTowardsPosition(Transform target, Transform lookTarget)
