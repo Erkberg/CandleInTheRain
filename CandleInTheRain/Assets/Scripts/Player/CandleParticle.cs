@@ -76,7 +76,7 @@ public class CandleParticle : MonoBehaviour
     public void UpgradeCandle()
     {        
         initialEmission += config.GetEmissionBonusPerInteraction();
-        flame.Emit((int)(initialEmission * 2));
+        flame.Emit((int)(initialEmission * 4));
         flame.startLifetime += config.GetLifeTimeBonusPerInteraction();
     }
 

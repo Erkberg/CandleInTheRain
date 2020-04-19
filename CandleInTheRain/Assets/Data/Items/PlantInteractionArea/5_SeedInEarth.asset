@@ -18,5 +18,4 @@ MonoBehaviour:
   cantInteractText: I'm missing something...
   needsItemId: -1
   replaceItemId: 1000
-  collect: 0
   activeAtStart: 0
