@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using ErksUnityLibrary;
+using DG.Tweening;
 
 public class TreeInteractionAreaFinishSequence : InteractionAreaFinishSequence
 {
@@ -9,24 +11,51 @@ public class TreeInteractionAreaFinishSequence : InteractionAreaFinishSequence
     public Transform vCam;
     public SpriteRenderer heart;
 
-    private bool firstTime = true;
+    private bool isInCorrectArea = false;
+    private float blinkTimer = 0f;
+    private bool isBlinking = false;
 
     protected override void CheckFinishCondition()
     {
         if (Vector3.Distance(vCam.localPosition, targetCamPosition) < distanceTolerance)
         {
-            AddHeartAlpha(0.33f);
-
-            if(firstTime)
+            if (!isInCorrectArea)
             {
-                firstTime = false;
                 Game.inst.audio.PlaySound(Game.inst.audio.mystery);
+            }
+
+            blinkTimer = 0f;
+            AddHeartAlpha(0.33f);
+            isInCorrectArea = true;
+
+            if(isBlinking)
+            {
+                isBlinking = false;
+                StopAllCoroutines();
+                heart.DOKill();
             }
         }
         else
         {
-            AddHeartAlpha(-1f);
+            if(heart.color.a <= 0f)
+                Timing.AddTimeAndCheckMax(ref blinkTimer, 8f, Time.deltaTime, () => StartCoroutine(BlinkHeart()));
+
+            isInCorrectArea = false;
+
+            if(!isBlinking)
+                AddHeartAlpha(-1f);
         }            
+    }
+
+    private IEnumerator BlinkHeart()
+    {
+        isBlinking = true;
+        float duration = 0.2f;
+        heart.DOFade(0.1f, duration);
+        yield return new WaitForSeconds(duration);
+        heart.DOFade(0f, duration);
+        yield return new WaitForSeconds(duration);
+        isBlinking = false;
     }
 
     public override IEnumerator FinishSequence()
