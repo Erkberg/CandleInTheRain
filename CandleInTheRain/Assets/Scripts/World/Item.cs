@@ -21,7 +21,7 @@ public class Item : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        Debug.Log("on mouse enter");
+        //Debug.Log("on mouse enter " + gameObject.name);
         if (interactionArea.isActive)
             Game.inst.ui.ShowText(itemData.name, "Click to interact");
     }
@@ -29,6 +29,6 @@ public class Item : MonoBehaviour
     private void OnMouseExit()
     {
         if (interactionArea.isActive)
-            Game.inst.ui.HideText();
+            Game.inst.ui.HideText(true);
     }
 }

@@ -12,6 +12,9 @@ public class GameUI : MonoBehaviour
     public RectTransform candleGreenArea;
     public GameObject gameOverScreen;
 
+    private string queuedText = "";
+    private string queuedSubtext = "";
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(0) && textObject.activeInHierarchy)
@@ -20,16 +23,41 @@ public class GameUI : MonoBehaviour
 
     public void ShowText(string main, string sub = "")
     {
-        textObject.SetActive(true);
-        maintext.text = main;
-        subtext.text = sub;
+        if(textObject.activeInHierarchy && queuedText != main)
+        {
+            //Debug.Log("queue text " + main);
+            queuedText = main;
+            queuedSubtext = sub;
+        }
+        else
+        {
+            //Debug.Log("show text " + main);
+            textObject.SetActive(true);
+            maintext.text = main;
+            subtext.text = sub;
+        }        
     }
 
-    public void HideText()
+    public void HideText(bool clearQueue = false)
     {
+        //Debug.Log("hide text " + maintext.text);
         textObject.SetActive(false);
         maintext.text = "";
         subtext.text = "";
+
+        if(clearQueue)
+        {
+            queuedText = "";
+            queuedSubtext = "";
+        }
+
+        if(!string.IsNullOrEmpty(queuedText))
+        {
+            //Debug.Log("show queued text after hide " + queuedText);
+            ShowText(queuedText, queuedSubtext);
+            queuedText = "";
+            queuedSubtext = "";
+        }
     }
 
     public void SetBackButtonActive(bool active)
