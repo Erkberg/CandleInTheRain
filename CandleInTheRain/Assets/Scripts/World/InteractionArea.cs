@@ -12,6 +12,7 @@ public class InteractionArea : MonoBehaviour
     public bool isActive = false;
     public bool isFinished = false;
     public ParticleSystem particle;
+    public Collider triggerCollider;
 
     private void Awake()
     {
@@ -34,11 +35,19 @@ public class InteractionArea : MonoBehaviour
         Game.inst.OnEnterInteractionArea(camState);
         Game.inst.refs.playerMovement.MoveTowardsPosition(playerParkingPosition, playerLookTarget);
         isActive = true;
+        triggerCollider.enabled = false;
+    }
+
+    public void OnPlayerExit()
+    {
+        isActive = false;
+        triggerCollider.enabled = true;
     }
 
     public IEnumerator OnFinish()
     {
         isFinished = true;
+        isActive = false;
         particle.startColor = new Color(0f, 0.5f, 0f);
         yield return null;
     }

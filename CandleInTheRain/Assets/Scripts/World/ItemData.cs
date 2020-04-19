@@ -11,6 +11,5 @@ public class ItemData : ScriptableObject
     public string cantInteractText = "I'm missing something...";
     public int needsItemId = -1;
     public int replaceItemId = -1;
-    public bool collect;
     public bool activeAtStart = true;
 }

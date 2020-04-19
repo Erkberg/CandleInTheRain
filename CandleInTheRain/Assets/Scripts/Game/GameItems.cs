@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameItems : MonoBehaviour
 {
     private Item[] allItems;
-    private List<int> collectedItemIds = new List<int>();
+    private List<int> finishedItemIds = new List<int>();
 
     private void Awake()
     {
@@ -22,9 +22,12 @@ public class GameItems : MonoBehaviour
     {
         ItemData itemData = item.itemData;
 
-        if(itemData.needsItemId == -1 || collectedItemIds.Contains(itemData.needsItemId))
+        if(itemData.needsItemId == -1 || finishedItemIds.Contains(itemData.needsItemId))
         {
-            if(itemData.replaceItemId == 1000 && !item.interactionArea.isFinished)
+            if(!finishedItemIds.Contains(itemData.id))
+                finishedItemIds.Add(itemData.id);
+
+            if (itemData.replaceItemId == 1000 && !item.interactionArea.isFinished)
             {
                 StartCoroutine(Game.inst.OnFinishInteractionArea(item.interactionArea));
             }
@@ -32,14 +35,13 @@ public class GameItems : MonoBehaviour
             {
                 Game.inst.ui.ShowText(itemData.interactText);
 
-                if (itemData.collect)
+                if (itemData.replaceItemId >= 0)
                 {
-                    collectedItemIds.Add(itemData.id);
-                    Destroy(item.gameObject);
-                }
-                else if (itemData.replaceItemId > 0)
-                {
-                    GetItemById(itemData.replaceItemId).gameObject.SetActive(true);
+                    if (itemData.replaceItemId > 0)
+                    {
+                        GetItemById(itemData.replaceItemId).gameObject.SetActive(true);
+                    }
+
                     Destroy(item.gameObject);
                 }
             }

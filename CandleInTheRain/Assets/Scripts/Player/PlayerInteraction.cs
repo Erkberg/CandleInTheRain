@@ -18,16 +18,10 @@ public class PlayerInteraction : MonoBehaviour
         }
     }
 
-    public void ReEnterInteractionArea()
-    {
-        if (currentInteractionArea)
-            currentInteractionArea.OnPlayerEnterTrigger();
-    }
-
     public void LeaveInteractionArea()
     {
         if (currentInteractionArea)
-            currentInteractionArea.isActive = false;
+            currentInteractionArea.OnPlayerExit();
 
         isInsideArea = false;
     }
@@ -36,7 +30,7 @@ public class PlayerInteraction : MonoBehaviour
     {
         InteractionArea interactionArea = other.GetComponent<InteractionArea>();
 
-        if(interactionArea)
+        if(interactionArea && !interactionArea.isFinished)
         {
             currentInteractionArea = interactionArea;
             currentInteractionArea.OnPlayerEnterTrigger();

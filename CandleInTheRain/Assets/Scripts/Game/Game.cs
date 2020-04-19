@@ -36,13 +36,13 @@ public class Game : MonoBehaviour
         cams.SetCamState(GameCams.CamState.ThirdPersonFollow);
         ui.SetBackButtonActive(false);
         SetPlayerActive(true);
-        refs.playerInteraction.ReEnterInteractionArea();
+        refs.playerInteraction.LeaveInteractionArea();
     }
 
     private void SetCursorState()
     {
         //Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Confined;
+        //Cursor.lockState = CursorLockMode.Confined;
     }
 
     public void SetPlayerActive(bool active)

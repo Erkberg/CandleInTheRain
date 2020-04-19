@@ -17,6 +17,5 @@ MonoBehaviour:
   interactText: I picked up the seed
   cantInteractText: I'm missing something...
   needsItemId: -1
-  replaceItemId: -1
-  collect: 1
+  replaceItemId: 0
   activeAtStart: 1
