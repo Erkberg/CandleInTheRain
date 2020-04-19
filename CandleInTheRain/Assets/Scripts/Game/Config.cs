@@ -24,6 +24,7 @@ public class Config : ScriptableObject
 
     [Header("Candle particle")]
     public float healthDecreaseMultiplier = 0.5f;
+    public float healthDecreaseMultiplierBonusPerInteraction = 0.1f;
     public float healthIncreaseMultiplier = 0.2f;
     public float totalEmissionBonus = 400f;
     public float totalLifeTimeBonus = 0.2f;

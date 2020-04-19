@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Config
   m_EditorClassIdentifier: 
   totalInteractions: 3
-  moveSpeed: 2
+  moveSpeed: 12
   rotationSpeed: 1
   moveUpSpeedRandomizer: 0.5
   moveUpSpeed: 0.01
@@ -23,6 +23,7 @@ MonoBehaviour:
   totalUpperHandLowerYBonus: 0.11
   totalCandleGreenAreaMalus: 70
   healthDecreaseMultiplier: 0.5
+  healthDecreaseMultiplierBonusPerInteraction: 0.12
   healthIncreaseMultiplier: 0.2
   totalEmissionBonus: 400
   totalLifeTimeBonus: 0.15

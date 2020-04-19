@@ -45,8 +45,10 @@ public class CandleParticle : MonoBehaviour
         }
         else if(currentState == CandleState.Decreasing)
         {
+            float bonus = Game.inst.config.healthDecreaseMultiplierBonusPerInteraction * Game.inst.interactionsFinished;
+
             if (currentHealth > 0f)
-                currentHealth -= Time.deltaTime * config.healthDecreaseMultiplier;
+                currentHealth -= Time.deltaTime * (config.healthDecreaseMultiplier - bonus);
 
             if (currentHealth <= 0f)
             {

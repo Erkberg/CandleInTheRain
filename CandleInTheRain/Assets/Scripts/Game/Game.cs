@@ -14,7 +14,8 @@ public class Game : MonoBehaviour
 
     public Config config;
 
-    private int interactionsFinished = 0;
+    [HideInInspector]
+    public int interactionsFinished = 0;
 
     private void Awake() 
     {
