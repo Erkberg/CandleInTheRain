@@ -80,6 +80,7 @@ public class Game : MonoBehaviour
 
     private IEnumerator CandleExtinctSequence()
     {
+        ui.SetBackButtonActive(false);
         SetPlayerActive(false);
         cams.SetCamState(GameCams.CamState.CandleFocus);
         yield return new WaitForSeconds(2f);

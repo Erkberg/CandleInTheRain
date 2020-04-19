@@ -24,6 +24,7 @@ public class PlayerInteraction : MonoBehaviour
             currentInteractionArea.OnPlayerExit();
 
         isInsideArea = false;
+        currentInteractionArea = null;
     }
 
     private void OnTriggerEnter(Collider other) 
