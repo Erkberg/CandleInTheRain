@@ -13,6 +13,7 @@ public class InteractionArea : MonoBehaviour
     public bool isFinished = false;
     public ParticleSystem particle;
     public Collider triggerCollider;
+    public InteractionAreaFinishSequence interactionAreaFinishSequence;
 
     private void Awake()
     {
@@ -46,9 +47,9 @@ public class InteractionArea : MonoBehaviour
 
     public IEnumerator OnFinish()
     {
-        isFinished = true;
         isActive = false;
+        isFinished = true;
+        yield return interactionAreaFinishSequence.FinishSequence();
         particle.startColor = new Color(0f, 0.5f, 0f);
-        yield return null;
     }
 }

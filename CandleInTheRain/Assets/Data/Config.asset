@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0998c1581e9724644a00aea90cc69060, type: 3}
+  m_Name: Config
+  m_EditorClassIdentifier: 
+  totalInteractions: 3
+  moveSpeed: 2
+  rotationSpeed: 1
+  moveUpSpeedRandomizer: 0.5
+  moveUpSpeed: 0.01
+  moveDownSpeed: 0.33
+  upperhandUpperY: 0.11
+  upperHandMaxY: 0.15
+  totalUpperHandLowerYBonus: 0.125
+  totalCandleGreenAreaMalus: 80
+  healthDecreaseMultiplier: 0.5
+  healthIncreaseMultiplier: 0.2
+  totalEmissionBonus: 400
+  totalLifeTimeBonus: 0.15
+  totalRainEmission: 4000

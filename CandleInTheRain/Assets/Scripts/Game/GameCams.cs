@@ -33,13 +33,13 @@ public class GameCams : MonoBehaviour
             case CamState.CandleFocus:
                 return vCams[1];
 
-            case CamState.FirstInteractionArea:
+            case CamState.PlantInteractionArea:
                 return vCams[2];
 
-            case CamState.SecondInteractionArea:
+            case CamState.WallInteractionArea:
                 return vCams[3];
 
-            case CamState.ThirdInteractionArea:
+            case CamState.TreeInteractionArea:
                 return vCams[4];
         }
 
@@ -50,8 +50,9 @@ public class GameCams : MonoBehaviour
     {
         ThirdPersonFollow,
         CandleFocus,
-        FirstInteractionArea,
-        SecondInteractionArea,
-        ThirdInteractionArea,
+        PlantInteractionArea,
+        WallInteractionArea,
+        TreeInteractionArea,
+        DoggyInteractionArea
     }
 }

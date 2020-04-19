@@ -6,8 +6,6 @@ public class PlayerMovement : MonoBehaviour
 {
     public bool movementEnabled = true;
     public Rigidbody rb;
-    public float moveSpeed = 1f;
-    public float rotationSpeed = 1f;
     public Transform body;
     public Animator animator;
 
@@ -32,10 +30,10 @@ public class PlayerMovement : MonoBehaviour
         Vector3 movement = new Vector3(Input.GetAxis(InputStrings.HorizontalMovement), 0f, Input.GetAxis(InputStrings.VerticalMovement));
         movement = mainCam.TransformDirection(movement);
         movement.y = 0f;
-        rb.velocity = movement.normalized * moveSpeed;
+        rb.velocity = movement.normalized * Game.inst.config.moveSpeed;
 
         if (movement != Vector3.zero) 
-            body.rotation = Quaternion.Slerp(body.rotation, Quaternion.LookRotation(movement), rotationSpeed);
+            body.rotation = Quaternion.Slerp(body.rotation, Quaternion.LookRotation(movement), Game.inst.config.rotationSpeed);
 
         animator.SetBool("walking", movement != Vector3.zero);
     }

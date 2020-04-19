@@ -33,6 +33,9 @@ ProjectVersion.txt
 *.booproj
 *.VC.db
 
+*.blend
+*.blend1
+
 # ============ #
 # OS generated #
 # ============ #

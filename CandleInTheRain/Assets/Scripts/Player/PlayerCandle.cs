@@ -8,16 +8,15 @@ public class PlayerCandle : MonoBehaviour
     public Transform upperHand;
     public CandleParticle candleParticle;
 
-    [Header("MoveSpeed")]
-    public float moveUpSpeedRandomizer = 0.5f;
-    public float moveUpSpeed = 0.01f;
-    public float moveDownSpeed = 0.1f;
-
-    [Header("Bounds")]
-    public float upperhandUpperY = 0.51f;
-    public float upperHandLowerY = 0.3f;
-    public float upperHandMaxY = 0.55f;
+    public float upperHandLowerY = -0.1f;
     public float burnJumpOffset = 0.2f;
+
+    private Config config;
+
+    private void Awake()
+    {
+        config = Game.inst.config;
+    }
 
     private void Update()
     {
@@ -29,14 +28,14 @@ public class PlayerCandle : MonoBehaviour
     {
         if(Input.GetMouseButton(1))
         {
-            upperHand.position -= new Vector3(0f, moveDownSpeed * Time.deltaTime, 0f);
+            upperHand.position -= new Vector3(0f, config.moveDownSpeed * Time.deltaTime, 0f);
         }
         else
         {
-            upperHand.position += new Vector3(0f, moveUpSpeed * Random.Range(1f - moveUpSpeedRandomizer, 1f + moveUpSpeedRandomizer) * Time.deltaTime, 0f);
+            upperHand.position += new Vector3(0f, config.moveUpSpeed * Random.Range(1f - config.moveUpSpeedRandomizer, 1f + config.moveUpSpeedRandomizer) * Time.deltaTime, 0f);
         }
 
-        if(upperHand.localPosition.y > upperhandUpperY)
+        if(upperHand.localPosition.y > config.upperhandUpperY)
         {
             candleParticle.SetState(CandleParticle.CandleState.Decreasing);
         }
@@ -49,15 +48,15 @@ public class PlayerCandle : MonoBehaviour
             candleParticle.SetState(CandleParticle.CandleState.Safe);
         }
 
-        if (upperHand.localPosition.y > upperHandMaxY)
-            upperHand.localPosition = new Vector3(upperHand.localPosition.x, upperHandMaxY, upperHand.localPosition.z);
+        if (upperHand.localPosition.y > config.upperHandMaxY)
+            upperHand.localPosition = new Vector3(upperHand.localPosition.x, config.upperHandMaxY, upperHand.localPosition.z);
     }
 
     public void UpgradeCandle()
     {
         candleParticle.UpgradeCandle();
-        upperHandLowerY += 0.04f;
-        burnJumpOffset -= 0.04f;
+        upperHandLowerY += config.GetUpperHandLowerYBonusPerInteraction();
+        burnJumpOffset -= config.GetUpperHandLowerYBonusPerInteraction();
         ResetCandle();
     }
 

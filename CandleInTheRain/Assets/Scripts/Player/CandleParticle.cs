@@ -12,16 +12,16 @@ public class CandleParticle : MonoBehaviour
     }
 
     public float currentHealth = 1f;
-    public float healthDecreaseMultiplier = 0.5f;
-    public float healthIncreaseMultiplier = 0.2f;
     public ParticleSystem flame;
     public ParticleSystem smoke;
     public CandleState currentState = CandleState.Safe;
 
     private float initialEmission;
+    private Config config;
 
     private void Awake()
     {
+        config = Game.inst.config;
         initialEmission = flame.emissionRate;
     }
 
@@ -37,7 +37,7 @@ public class CandleParticle : MonoBehaviour
         if(currentState == CandleState.Safe)
         {
             if (currentHealth < 1f)
-                currentHealth += Time.deltaTime * healthIncreaseMultiplier;
+                currentHealth += Time.deltaTime * config.healthIncreaseMultiplier;
 
             if (currentHealth > 1f)
                 currentHealth = 1f;
@@ -45,7 +45,7 @@ public class CandleParticle : MonoBehaviour
         else if(currentState == CandleState.Decreasing)
         {
             if (currentHealth > 0f)
-                currentHealth -= Time.deltaTime * healthDecreaseMultiplier;
+                currentHealth -= Time.deltaTime * config.healthDecreaseMultiplier;
 
             if (currentHealth <= 0f)
             {
@@ -70,9 +70,9 @@ public class CandleParticle : MonoBehaviour
 
     public void UpgradeCandle()
     {        
-        initialEmission += 100f;
+        initialEmission += config.GetEmissionBonusPerInteraction();
         flame.Emit((int)(initialEmission * 2));
-        flame.startLifetime += 0.05f;
+        flame.startLifetime += config.GetLifeTimeBonusPerInteraction();
     }
 
     public void EmitSmoke()

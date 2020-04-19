@@ -11,6 +11,8 @@ public class Game : MonoBehaviour
     public GameUI ui;
     public GameItems items;
 
+    public Config config;
+
     private void Awake() 
     {
         inst = this;
@@ -79,7 +81,7 @@ public class Game : MonoBehaviour
         yield return new WaitForSeconds(2f);
         refs.playerCandle.UpgradeCandle();
         ui.OnUpgradeCandle();
-        refs.rain.emissionRate -= 1000f;
+        refs.rain.emissionRate -= config.GetRainEmissionMalusPerInteraction();
         yield return new WaitForSeconds(3f);
         OnBackButtonPressed();
     }
