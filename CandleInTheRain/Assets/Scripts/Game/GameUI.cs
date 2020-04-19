@@ -11,6 +11,7 @@ public class GameUI : MonoBehaviour
     public TextMeshProUGUI subtext;
     public RectTransform candleGreenArea;
     public GameObject gameOverScreen;
+    public GameObject credits;
 
     private string queuedText = "";
     private string queuedSubtext = "";

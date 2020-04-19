@@ -14,6 +14,7 @@ public class CandleParticle : MonoBehaviour
     public float currentHealth = 1f;
     public ParticleSystem flame;
     public ParticleSystem smoke;
+    public ParticleSystem endParticle;
     public CandleState currentState = CandleState.Safe;
 
     private float initialEmission;
@@ -78,5 +79,15 @@ public class CandleParticle : MonoBehaviour
     public void EmitSmoke()
     {
         smoke.Emit(20);
+    }
+
+    public void ActivateEndParticle()
+    {
+        endParticle.gameObject.SetActive(true);
+    }
+
+    public void EndParticleBurst()
+    {
+        endParticle.Emit(2000);
     }
 }

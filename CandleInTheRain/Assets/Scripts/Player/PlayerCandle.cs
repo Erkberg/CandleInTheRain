@@ -7,6 +7,7 @@ public class PlayerCandle : MonoBehaviour
     public bool candleActive = true;
     public Transform upperHand;
     public CandleParticle candleParticle;
+    public Transform lowerHandBone;
 
     public float upperHandLowerY = -0.1f;
     public float burnJumpOffset = 0.2f;
@@ -64,5 +65,10 @@ public class PlayerCandle : MonoBehaviour
     {
         upperHand.localPosition = new Vector3(upperHand.localPosition.x, 0f, upperHand.localPosition.z);
         candleParticle.LightAnew();
+    }
+
+    public void ParentToHand()
+    {
+        transform.parent = lowerHandBone;
     }
 }

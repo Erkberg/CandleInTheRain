@@ -13,6 +13,8 @@ public class Game : MonoBehaviour
 
     public Config config;
 
+    private int interactionsFinished = 0;
+
     private void Awake() 
     {
         inst = this;
@@ -27,7 +29,16 @@ public class Game : MonoBehaviour
 
 #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.C))
-            StartCoroutine(CandleUpgradeSequence());
+        {
+            interactionsFinished++;
+            if (interactionsFinished >= config.totalInteractions)
+                StartCoroutine(GameEndSequence());
+            else
+                StartCoroutine(CandleUpgradeSequence());
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+            StartCoroutine(GameEndSequence());
 #endif
     }
 
@@ -56,6 +67,9 @@ public class Game : MonoBehaviour
     {
         refs.playerMovement.movementEnabled = active;
         refs.playerInteraction.interactionEnabled = active;
+
+        if (!active)
+            refs.playerMovement.animator.SetBool("walking", false);
     }
 
     public void OnCandleExtinct()
@@ -77,10 +91,15 @@ public class Game : MonoBehaviour
     public IEnumerator OnFinishInteractionArea(InteractionArea interactionArea)
     {
         yield return interactionArea.OnFinish();
-        yield return CandleUpgradeSequence();
+
+        interactionsFinished++;
+        if (interactionsFinished >= config.totalInteractions)
+            StartCoroutine(GameEndSequence());
+        else
+            yield return CandleUpgradeSequence();
     }
 
-    private IEnumerator CandleUpgradeSequence()
+    private IEnumerator CandleUpgradeSequence(bool skipBackButton = false)
     {
         cams.SetCamState(GameCams.CamState.CandleFocus);
         yield return new WaitForSeconds(2f);
@@ -88,7 +107,9 @@ public class Game : MonoBehaviour
         ui.OnUpgradeCandle();
         refs.rain.emissionRate -= config.GetRainEmissionMalusPerInteraction();
         yield return new WaitForSeconds(3f);
-        OnBackButtonPressed();
+
+        if(!skipBackButton)
+            OnBackButtonPressed();
     }
 
     public void OnRelightButtonClicked()
@@ -97,5 +118,19 @@ public class Game : MonoBehaviour
         SetPlayerActive(true);
         refs.playerCandle.ResetCandle();
         cams.SetCamState(GameCams.CamState.ThirdPersonFollow);
+    }
+
+    private IEnumerator GameEndSequence()
+    {
+        refs.playerCandle.candleActive = false;
+        yield return CandleUpgradeSequence(true);
+        refs.playerCandle.ParentToHand();
+        refs.playerMovement.animator.SetTrigger("end");
+        yield return new WaitForSeconds(12f);
+        refs.playerCandle.candleParticle.ActivateEndParticle();
+        yield return new WaitForSeconds(4f);
+        refs.playerCandle.candleParticle.EndParticleBurst();
+        yield return new WaitForSeconds(4f);
+        ui.credits.SetActive(true);
     }
 }
