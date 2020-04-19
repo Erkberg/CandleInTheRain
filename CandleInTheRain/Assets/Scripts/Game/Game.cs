@@ -10,6 +10,7 @@ public class Game : MonoBehaviour
     public GameCams cams;
     public GameUI ui;
     public GameItems items;
+    public GameAudio audio;
 
     public Config config;
 
@@ -83,6 +84,7 @@ public class Game : MonoBehaviour
         cams.SetCamState(GameCams.CamState.CandleFocus);
         yield return new WaitForSeconds(2f);
         refs.playerCandle.candleParticle.EmitSmoke();
+        audio.PlaySound(audio.candleSmoke);
         yield return new WaitForSeconds(2f);
         ui.SetGameOverScreenActive(true);
         refs.playerMovement.ResetPosition();
@@ -106,6 +108,7 @@ public class Game : MonoBehaviour
         refs.playerCandle.UpgradeCandle();
         ui.OnUpgradeCandle();
         refs.rain.emissionRate -= config.GetRainEmissionMalusPerInteraction();
+        audio.SetAtmoVolumePercentage(1f - (float)interactionsFinished / config.totalInteractions);
         yield return new WaitForSeconds(3f);
 
         if(!skipBackButton)
@@ -124,6 +127,7 @@ public class Game : MonoBehaviour
     {
         refs.playerCandle.candleActive = false;
         yield return CandleUpgradeSequence(true);
+        ui.candleView.SetActive(false);
         refs.playerCandle.ParentToHand();
         refs.playerMovement.animator.SetTrigger("end");
         yield return new WaitForSeconds(12f);

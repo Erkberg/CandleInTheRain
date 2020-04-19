@@ -42,12 +42,14 @@ public class GameItems : MonoBehaviour
                         GetItemById(itemData.replaceItemId).gameObject.SetActive(true);
                     }
 
+                    Game.inst.audio.PlaySound(Game.inst.audio.interactSuccess);
                     Destroy(item.gameObject);
                 }
             }
         }
         else
         {
+            Game.inst.audio.PlaySound(Game.inst.audio.interactFail);
             Game.inst.ui.ShowText(itemData.cantInteractText);
         }
     }

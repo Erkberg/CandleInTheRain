@@ -59,12 +59,16 @@ public class CandleParticle : MonoBehaviour
 
     public void SetState(CandleState state)
     {
-        if(currentState != CandleState.Extinct)
+        if(currentState == CandleState.Safe && state == CandleState.Decreasing)
+            Game.inst.audio.PlaySound(Game.inst.audio.candleDanger);
+
+        if (currentState != CandleState.Extinct)
             currentState = state;
     }
         
     public void LightAnew()
     {
+        Game.inst.audio.PlaySound(Game.inst.audio.candleUpgrade);
         currentHealth = 1f;
         currentState = CandleState.Safe;
     }

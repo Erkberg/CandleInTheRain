@@ -16,6 +16,7 @@ public class WallInteractionAreaFinishSequence : InteractionAreaFinishSequence
 
     public override IEnumerator FinishSequence()
     {
+        Game.inst.audio.PlaySound(Game.inst.audio.mystery);
         wall.SetActive(false);
         Game.inst.ui.SetBackButtonActive(false);
         Game.inst.refs.playerCandle.candleActive = false;

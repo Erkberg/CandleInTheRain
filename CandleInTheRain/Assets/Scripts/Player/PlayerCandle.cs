@@ -42,6 +42,7 @@ public class PlayerCandle : MonoBehaviour
         }
         else if(upperHand.localPosition.y < upperHandLowerY)
         {
+            Game.inst.audio.PlaySound(Game.inst.audio.candleBurn);
             upperHand.position += new Vector3(0f, burnJumpOffset, 0f);
         }
         else

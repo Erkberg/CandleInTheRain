@@ -26,4 +26,4 @@ MonoBehaviour:
   healthIncreaseMultiplier: 0.2
   totalEmissionBonus: 400
   totalLifeTimeBonus: 0.15
-  totalRainEmission: 4000
+  totalRainEmission: 5000

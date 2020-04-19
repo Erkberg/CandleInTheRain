@@ -9,11 +9,19 @@ public class TreeInteractionAreaFinishSequence : InteractionAreaFinishSequence
     public Transform vCam;
     public SpriteRenderer heart;
 
+    private bool firstTime = true;
+
     protected override void CheckFinishCondition()
     {
         if (Vector3.Distance(vCam.localPosition, targetCamPosition) < distanceTolerance)
         {
             AddHeartAlpha(0.33f);
+
+            if(firstTime)
+            {
+                firstTime = false;
+                Game.inst.audio.PlaySound(Game.inst.audio.mystery);
+            }
         }
         else
         {
