@@ -14,9 +14,9 @@ public class PlayerCandle : MonoBehaviour
     public float moveDownSpeed = 0.1f;
 
     [Header("Bounds")]
-    public float upperhandUpperY = 0.11f;
-    public float upperHandLowerY = -0.1f;
-    public float upperHandMaxY = 0.15f;
+    public float upperhandUpperY = 0.51f;
+    public float upperHandLowerY = 0.3f;
+    public float upperHandMaxY = 0.55f;
     public float burnJumpOffset = 0.2f;
 
     private void Update()
