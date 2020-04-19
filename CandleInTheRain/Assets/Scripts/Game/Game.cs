@@ -24,6 +24,11 @@ public class Game : MonoBehaviour
     {
         if(Input.GetMouseButtonDown(0))
             SetCursorState();
+
+#if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.C))
+            StartCoroutine(CandleUpgradeSequence());
+#endif
     }
 
     public void OnEnterInteractionArea(GameCams.CamState camState)

@@ -18,10 +18,10 @@ MonoBehaviour:
   moveUpSpeedRandomizer: 0.5
   moveUpSpeed: 0.01
   moveDownSpeed: 0.33
-  upperhandUpperY: 0.11
-  upperHandMaxY: 0.15
-  totalUpperHandLowerYBonus: 0.125
-  totalCandleGreenAreaMalus: 80
+  upperhandUpperY: 0.08
+  upperHandMaxY: 0.14
+  totalUpperHandLowerYBonus: 0.11
+  totalCandleGreenAreaMalus: 70
   healthDecreaseMultiplier: 0.5
   healthIncreaseMultiplier: 0.2
   totalEmissionBonus: 400
