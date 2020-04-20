@@ -29,6 +29,9 @@ public class Game : MonoBehaviour
         if(Input.GetMouseButtonDown(0))
             SetCursorState();
 
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
+
 #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.C))
         {
