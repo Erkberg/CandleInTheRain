@@ -23,6 +23,7 @@ public class PlayerInteraction : MonoBehaviour
         if (currentInteractionArea)
             currentInteractionArea.OnPlayerExit();
 
+        Game.inst.cursor.SetVisibility(false);
         isInsideArea = false;
         currentInteractionArea = null;
     }

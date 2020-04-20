@@ -11,6 +11,7 @@ public class Game : MonoBehaviour
     public GameUI ui;
     public GameItems items;
     public GameAudio audio;
+    public GameCursor cursor;
 
     public Config config;
 
@@ -21,14 +22,11 @@ public class Game : MonoBehaviour
     {
         inst = this;
 
-        SetCursorState();
+        cursor.SetVisibility(false);
     }
 
     private void Update() 
     {
-        if(Input.GetMouseButtonDown(0))
-            SetCursorState();
-
         if (Input.GetKeyDown(KeyCode.Escape))
             Application.Quit();
 
@@ -49,6 +47,7 @@ public class Game : MonoBehaviour
 
     public void OnEnterInteractionArea(GameCams.CamState camState)
     {
+        cursor.SetVisibility(true);
         cams.SetCamState(camState);
         ui.SetBackButtonActive(true);
         SetPlayerActive(false);
@@ -58,14 +57,9 @@ public class Game : MonoBehaviour
     {
         cams.SetCamState(GameCams.CamState.ThirdPersonFollow);
         ui.SetBackButtonActive(false);
+        cursor.SetVisibility(false);
         SetPlayerActive(true);
         refs.playerInteraction.LeaveInteractionArea();
-    }
-
-    private void SetCursorState()
-    {
-        //Cursor.visible = false;
-        //Cursor.lockState = CursorLockMode.Confined;
     }
 
     public void SetPlayerActive(bool active)
@@ -84,7 +78,6 @@ public class Game : MonoBehaviour
 
     private IEnumerator CandleExtinctSequence()
     {
-
         refs.playerInteraction.LeaveInteractionArea();
         ui.SetBackButtonActive(false);
         SetPlayerActive(false);
@@ -93,12 +86,14 @@ public class Game : MonoBehaviour
         refs.playerCandle.candleParticle.EmitSmoke();
         audio.PlaySound(audio.candleSmoke);
         yield return new WaitForSeconds(2f);
+        cursor.SetVisibility(true);
         ui.SetGameOverScreenActive(true);
         refs.playerMovement.ResetPosition();
     }
 
     public IEnumerator OnFinishInteractionArea(InteractionArea interactionArea)
     {
+        ui.SetBackButtonActive(false);
         yield return interactionArea.OnFinish();
 
         interactionsFinished++;
@@ -124,6 +119,7 @@ public class Game : MonoBehaviour
 
     public void OnRelightButtonClicked()
     {
+        cursor.SetVisibility(false);
         ui.SetGameOverScreenActive(false);
         SetPlayerActive(true);
         refs.playerCandle.ResetCandle();
