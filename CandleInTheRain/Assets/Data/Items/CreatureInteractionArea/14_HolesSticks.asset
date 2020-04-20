@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 389d540fe69087444a510178ad37d474, type: 3}
-  m_Name: 4_SeedInHole
+  m_Name: 14_HolesSticks
   m_EditorClassIdentifier: 
-  id: 4
-  name: A seed in a comfy hole in the ground.
-  interactText: I put the loose earth back onto the seed.
+  id: 14
+  name: A perfect foundation to build upon.
+  interactText: I placed the plate on the sticks. What a lovely little shelter!
   cantInteractText: I'm missing something...
-  needsItemId: -1
-  replaceItemId: 5
+  needsItemId: 15
+  replaceItemId: 16
   activeAtStart: 0

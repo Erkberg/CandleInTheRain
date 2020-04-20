@@ -41,6 +41,9 @@ public class GameCams : MonoBehaviour
 
             case CamState.TreeInteractionArea:
                 return vCams[4];
+
+            case CamState.CreatureInteractionArea:
+                return vCams[5];
         }
 
         return null;
@@ -53,6 +56,6 @@ public class GameCams : MonoBehaviour
         PlantInteractionArea,
         WallInteractionArea,
         TreeInteractionArea,
-        DoggyInteractionArea
+        CreatureInteractionArea
     }
 }

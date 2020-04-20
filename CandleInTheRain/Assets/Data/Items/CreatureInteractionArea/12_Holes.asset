@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 389d540fe69087444a510178ad37d474, type: 3}
-  m_Name: 4_SeedInHole
+  m_Name: 12_Holes
   m_EditorClassIdentifier: 
-  id: 4
-  name: A seed in a comfy hole in the ground.
-  interactText: I put the loose earth back onto the seed.
+  id: 12
+  name: Two neat little holes in the ground.
+  interactText: I managed to put the sticks firmly into the ground.
   cantInteractText: I'm missing something...
-  needsItemId: -1
-  replaceItemId: 5
+  needsItemId: 13
+  replaceItemId: 14
   activeAtStart: 0

@@ -81,6 +81,8 @@ public class Game : MonoBehaviour
 
     private IEnumerator CandleExtinctSequence()
     {
+
+        refs.playerInteraction.LeaveInteractionArea();
         ui.SetBackButtonActive(false);
         SetPlayerActive(false);
         cams.SetCamState(GameCams.CamState.CandleFocus);
@@ -90,6 +92,7 @@ public class Game : MonoBehaviour
         yield return new WaitForSeconds(2f);
         ui.SetGameOverScreenActive(true);
         refs.playerMovement.ResetPosition();
+        Debug.Log("candle extinct 2");
     }
 
     public IEnumerator OnFinishInteractionArea(InteractionArea interactionArea)

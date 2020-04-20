@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: 2_Hole
   m_EditorClassIdentifier: 
   id: 2
-  name: A hole
-  interactText: I planted the seed
+  name: A hole in the ground.
+  interactText: I planted the seed.
   cantInteractText: I'm missing something...
   needsItemId: 3
   replaceItemId: 4
-  collect: 0
   activeAtStart: 0

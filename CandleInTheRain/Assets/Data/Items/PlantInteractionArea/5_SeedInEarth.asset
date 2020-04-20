@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 5_SeedInEarth
   m_EditorClassIdentifier: 
   id: 5
-  name: The seed rests peacefully inside the ground
+  name: The seed rests peacefully inside the ground.
   interactText: The seed has grown into a plant!
   cantInteractText: I'm missing something...
   needsItemId: -1

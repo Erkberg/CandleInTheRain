@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: 1_Ground
   m_EditorClassIdentifier: 
   id: 1
-  name: Some loose ground
-  interactText: I dug a little hole
+  name: Some loose ground.
+  interactText: I dug a little hole in the ground.
   cantInteractText: I'm missing something...
   needsItemId: -1
   replaceItemId: 2
-  collect: 0
+  activeAtStart: 1

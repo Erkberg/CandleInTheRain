@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 389d540fe69087444a510178ad37d474, type: 3}
-  m_Name: 4_SeedInHole
+  m_Name: 15_Plate
   m_EditorClassIdentifier: 
-  id: 4
-  name: A seed in a comfy hole in the ground.
-  interactText: I put the loose earth back onto the seed.
+  id: 15
+  name: A solid plate.
+  interactText: I picked up the plate. It's not too heavy, but should be prone to
+    wind and such.
   cantInteractText: I'm missing something...
   needsItemId: -1
-  replaceItemId: 5
-  activeAtStart: 0
+  replaceItemId: 0
+  activeAtStart: 1
