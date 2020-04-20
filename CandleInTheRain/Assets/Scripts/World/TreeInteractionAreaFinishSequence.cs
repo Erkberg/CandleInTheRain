@@ -25,7 +25,7 @@ public class TreeInteractionAreaFinishSequence : InteractionAreaFinishSequence
             }
 
             blinkTimer = 0f;
-            AddHeartAlpha(0.33f);
+            AddHeartAlpha(0.25f);
             isInCorrectArea = true;
 
             if(isBlinking)

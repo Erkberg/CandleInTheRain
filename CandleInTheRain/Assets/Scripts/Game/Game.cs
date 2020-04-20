@@ -92,7 +92,6 @@ public class Game : MonoBehaviour
         yield return new WaitForSeconds(2f);
         ui.SetGameOverScreenActive(true);
         refs.playerMovement.ResetPosition();
-        Debug.Log("candle extinct 2");
     }
 
     public IEnumerator OnFinishInteractionArea(InteractionArea interactionArea)
