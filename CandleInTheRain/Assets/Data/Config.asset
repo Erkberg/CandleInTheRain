@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Config
   m_EditorClassIdentifier: 
   totalInteractions: 4
-  moveSpeed: 2
+  moveSpeed: 2.5
   rotationSpeed: 1
   moveUpSpeedRandomizer: 0.5
   moveUpSpeed: 0.01

@@ -19,3 +19,4 @@ MonoBehaviour:
   needsItemId: 15
   replaceItemId: 16
   activeAtStart: 0
+  finishedAfterwards: 1

@@ -27,24 +27,24 @@ public class GameItems : MonoBehaviour
             if(!finishedItemIds.Contains(itemData.id))
                 finishedItemIds.Add(itemData.id);
 
-            if (itemData.replaceItemId == 1000 && !item.interactionArea.isFinished)
+            if (itemData.replaceItemId >= 0)
+            {
+                if (itemData.replaceItemId > 0)
+                {
+                    GetItemById(itemData.replaceItemId).gameObject.SetActive(true);
+                }
+
+                Game.inst.audio.PlaySound(Game.inst.audio.interactSuccess);
+                Destroy(item.gameObject);
+            }
+
+            if (itemData.finishedAfterwards && !item.interactionArea.isFinished)
             {
                 StartCoroutine(Game.inst.OnFinishInteractionArea(item.interactionArea));
             }
             else
             {
                 Game.inst.ui.ShowText(itemData.interactText);
-
-                if (itemData.replaceItemId >= 0)
-                {
-                    if (itemData.replaceItemId > 0)
-                    {
-                        GetItemById(itemData.replaceItemId).gameObject.SetActive(true);
-                    }
-
-                    Game.inst.audio.PlaySound(Game.inst.audio.interactSuccess);
-                    Destroy(item.gameObject);
-                }
             }
         }
         else

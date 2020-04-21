@@ -17,5 +17,6 @@ MonoBehaviour:
   interactText: This should protect the creature from the rain.
   cantInteractText: I'm missing something...
   needsItemId: -1
-  replaceItemId: 1000
+  replaceItemId: -1
   activeAtStart: 0
+  finishedAfterwards: 0

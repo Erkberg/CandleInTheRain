@@ -8,10 +8,17 @@ public class CreatureInteractionAreaFinishSequence : InteractionAreaFinishSequen
 
     public override IEnumerator FinishSequence()
     {
+        Game.inst.ui.SetCanClickAwayText(false);
+        Game.inst.ui.HideText(true);
+        yield return null;
+        Game.inst.ui.ShowText("I placed the plate on the sticks. What a lovely little shelter!");
+        yield return new WaitForSeconds(2f);
         creature.SetTrigger("happy");
+        Game.inst.ui.HideText(true);
         yield return new WaitForSeconds(1f);
-        Game.inst.ui.ShowText("The creature has a nice little shelter now to protect it from the rain. I'm just glad I was able to help.");
+        Game.inst.ui.ShowText("The creature is now protected from the rain. I'm just glad I was able to help.");
         yield return new WaitForSeconds(4f);
         Game.inst.ui.HideText(true);
+        Game.inst.ui.SetCanClickAwayText(true);
     }
 }

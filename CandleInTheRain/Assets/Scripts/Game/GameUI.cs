@@ -17,9 +17,11 @@ public class GameUI : MonoBehaviour
     private string queuedText = "";
     private string queuedSubtext = "";
 
+    private bool canClickAwayText = true;
+
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0) && textObject.activeInHierarchy)
+        if (Input.GetMouseButtonDown(0) && textObject.activeInHierarchy && canClickAwayText)
             HideText();
     }
 
@@ -60,6 +62,11 @@ public class GameUI : MonoBehaviour
             queuedText = "";
             queuedSubtext = "";
         }
+    }
+
+    public void SetCanClickAwayText(bool canClickAway)
+    {
+        canClickAwayText = canClickAway;
     }
 
     public void SetBackButtonActive(bool active)

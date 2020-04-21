@@ -12,4 +12,5 @@ public class ItemData : ScriptableObject
     public int needsItemId = -1;
     public int replaceItemId = -1;
     public bool activeAtStart = true;
+    public bool finishedAfterwards = false;
 }
