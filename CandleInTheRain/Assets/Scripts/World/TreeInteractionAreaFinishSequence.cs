@@ -7,6 +7,7 @@ using DG.Tweening;
 public class TreeInteractionAreaFinishSequence : InteractionAreaFinishSequence
 {
     public Vector3 targetCamPosition = new Vector3(-0.72f, 10.77f, 15.05f);
+    public Vector3 altTargetCamPosition = new Vector3(-4.8f, 10.98f, -14.28f);
     public float distanceTolerance = 0.1f;
     public Transform vCam;
     public SpriteRenderer heart;
@@ -17,7 +18,7 @@ public class TreeInteractionAreaFinishSequence : InteractionAreaFinishSequence
 
     protected override void CheckFinishCondition()
     {
-        if (Vector3.Distance(vCam.localPosition, targetCamPosition) < distanceTolerance)
+        if (Vector3.Distance(vCam.localPosition, targetCamPosition) < distanceTolerance || Vector3.Distance(vCam.localPosition, altTargetCamPosition) < distanceTolerance)
         {
             if (!isInCorrectArea)
             {
