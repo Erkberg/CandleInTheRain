@@ -49,10 +49,7 @@ public class InteractionArea : MonoBehaviour
     {
         isActive = false;
         isFinished = true;
-        Game.inst.ui.backButtonObject.SetActive(false);
-        Game.inst.refs.playerCandle.candleActive = false;
         yield return interactionAreaFinishSequence.FinishSequence();
-        Game.inst.refs.playerCandle.candleActive = true;
         particle.startColor = new Color(0f, 0.5f, 0f);
     }
 }

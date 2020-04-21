@@ -94,7 +94,9 @@ public class Game : MonoBehaviour
     public IEnumerator OnFinishInteractionArea(InteractionArea interactionArea)
     {
         ui.SetBackButtonActive(false);
+        refs.playerCandle.SetCandleActive(false);
         yield return interactionArea.OnFinish();
+        refs.playerCandle.SetCandleActive(true);
 
         interactionsFinished++;
         if (interactionsFinished >= config.totalInteractions)
@@ -128,7 +130,7 @@ public class Game : MonoBehaviour
 
     private IEnumerator GameEndSequence()
     {
-        refs.playerCandle.candleActive = false;
+        refs.playerCandle.SetCandleActive(false);
         yield return CandleUpgradeSequence(true);
         ui.candleView.SetActive(false);
         refs.playerCandle.ParentToHand();

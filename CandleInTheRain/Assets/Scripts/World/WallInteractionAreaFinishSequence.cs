@@ -19,12 +19,12 @@ public class WallInteractionAreaFinishSequence : InteractionAreaFinishSequence
         Game.inst.audio.PlaySound(Game.inst.audio.mystery);
         wall.SetActive(false);
         Game.inst.ui.SetBackButtonActive(false);
-        Game.inst.refs.playerCandle.candleActive = false;
+        Game.inst.refs.playerCandle.SetCandleActive(false);
         while(mainCam.position.y > 10f)
         {
             yield return null;
         }
-        Game.inst.refs.playerCandle.candleActive = true;
+        Game.inst.refs.playerCandle.SetCandleActive(true);
     }
 
     protected override void CheckFinishCondition()

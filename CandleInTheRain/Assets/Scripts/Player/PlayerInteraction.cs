@@ -11,7 +11,7 @@ public class PlayerInteraction : MonoBehaviour
 
     private void Update() 
     {
-        if(Input.GetMouseButtonDown(0) && currentInteractionArea)
+        if(Input.GetMouseButtonDown(0) && currentInteractionArea && !isInsideArea)
         {
             currentInteractionArea.OnPlayerEnter();
             isInsideArea = true;

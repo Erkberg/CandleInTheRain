@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerCandle : MonoBehaviour
-{
-    public bool candleActive = true;
+{    
     public Transform upperHand;
     public CandleParticle candleParticle;
     public Transform lowerHandBone;
@@ -13,6 +12,7 @@ public class PlayerCandle : MonoBehaviour
     public float burnJumpOffset = 0.2f;
 
     private Config config;
+    private bool candleActive = true;
 
     private void Awake()
     {
@@ -23,6 +23,11 @@ public class PlayerCandle : MonoBehaviour
     {
         if (candleActive)
             MoveHand();
+    }
+
+    public void SetCandleActive(bool active)
+    {
+        candleActive = active;
     }
 
     private void MoveHand()
