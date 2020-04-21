@@ -45,8 +45,8 @@ public class PlayerMovement : MonoBehaviour
         transform.position = targetPosition;
 
         Vector3 lookPosition = lookTarget.position;
-        lookPosition.y = transform.position.y;
-        transform.LookAt(lookPosition, Vector3.up);
+        lookPosition.y = body.position.y;
+        body.LookAt(lookPosition, Vector3.up);
     }
 
     public void ResetPosition()
