@@ -11,7 +11,7 @@ public class PlantInteractionAreaFinishSequence : InteractionAreaFinishSequence
         Game.inst.ui.SetCanClickAwayText(false);
         Game.inst.ui.HideText(true);
         yield return null;
-        Game.inst.ui.ShowText("I put the loose earth back onto the seed. The seed rests peacefully inside the ground now.");
+        Game.inst.ui.ShowText("I put the loose earth back onto the seed.\nThe seed rests peacefully inside the ground now.");
         yield return new WaitForSeconds(3f);
         Game.inst.ui.HideText(true);
 
@@ -26,7 +26,7 @@ public class PlantInteractionAreaFinishSequence : InteractionAreaFinishSequence
         yield return new WaitForSeconds(1f);
         Game.inst.ui.HideText(true);
         yield return null;
-        Game.inst.ui.ShowText("The seed has grown into a (strange, seemingly dangerous, yet beautiful) plant!");
+        Game.inst.ui.ShowText("The seed has grown into a...\n(strange, seemingly dangerous, yet beautiful)\n...plant!");
         yield return new WaitForSeconds(4f);
         Game.inst.ui.HideText(true);
         Game.inst.ui.SetCanClickAwayText(true);

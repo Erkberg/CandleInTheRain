@@ -5,6 +5,7 @@ using UnityEngine;
 public class InteractionArea : MonoBehaviour
 {
     public int id = 1;
+    [TextArea]
     public string enterText;
     public GameCams.CamState camState;
     public Transform playerParkingPosition;

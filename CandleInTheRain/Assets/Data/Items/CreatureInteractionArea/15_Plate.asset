@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 15
   name: A solid plate.
-  interactText: I picked up the plate. It's not too heavy, but should be prone to
-    wind and such.
+  interactText: "I picked up the plate. \nIt's not too heavy, but should be prone
+    to wind and weather."
   cantInteractText: I'm missing something...
   needsItemId: -1
   replaceItemId: 0
   activeAtStart: 1
+  finishedAfterwards: 0

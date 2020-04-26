@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: 3_Seed
   m_EditorClassIdentifier: 
   id: 3
-  name: A seed. What plant could grow from this?
+  name: 'A seed.
+
+    What plant could grow from this?'
   interactText: I picked up the seed.
   cantInteractText: I'm missing something...
   needsItemId: -1
   replaceItemId: 0
   activeAtStart: 1
+  finishedAfterwards: 0

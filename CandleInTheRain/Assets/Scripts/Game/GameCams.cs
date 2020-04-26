@@ -17,7 +17,7 @@ public class GameCams : MonoBehaviour
         GetvCamByCurrentState().SetActive(true);
     }
 
-    private void DisableAllvCams()
+    public void DisableAllvCams()
     {
         foreach (GameObject vCam in vCams)
             vCam.SetActive(false);

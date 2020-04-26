@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\Erk\AppData\Local\JetBrains\Rider2020.1\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\Erk\AppData\Local\JetBrains\Rider2020.1\resharper-host\Local\Transient\ReSharperHost\v201\SolutionCaches\_CandleInTheRain.179741323.00" t="ExcludeRecursive" />
+    <e p="F:\LD46\game\CandleInTheRain\CandleInTheRain" t="IncludeRecursive">
+      <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Plugins" t="Include">
+          <e p="Demigiant" t="Include">
+            <e p="DOTween" t="Include">
+              <e p="Modules" t="Include">
+                <e p="DOTweenModuleAudio.cs" t="Include" />
+                <e p="DOTweenModulePhysics.cs" t="Include" />
+                <e p="DOTweenModulePhysics2D.cs" t="Include" />
+                <e p="DOTweenModuleSprite.cs" t="Include" />
+                <e p="DOTweenModuleUI.cs" t="Include" />
+                <e p="DOTweenModuleUnityVersion.cs" t="Include" />
+                <e p="DOTweenModuleUtils.cs" t="Include" />
+              </e>
+              <e p="readme.txt" t="Include" />
+            </e>
+          </e>
+          <e p="UnityLibrary" t="Include">
+            <e p="Scripts" t="Include">
+              <e p="Camera" t="Include">
+                <e p="Screenshake.cs" t="Include" />
+              </e>
+              <e p="ExtensionMethods" t="Include">
+                <e p="AudioSourceExtensions.cs" t="Include" />
+                <e p="ColorExtensions.cs" t="Include" />
+                <e p="ListExtensions.cs" t="Include" />
+                <e p="NumericExtensions.cs" t="Include" />
+                <e p="ParticleExtensions.cs" t="Include" />
+                <e p="RectTransformExtensions.cs" t="Include" />
+                <e p="StringExtensions.cs" t="Include" />
+                <e p="TransformExtensions.cs" t="Include" />
+                <e p="VectorExtensions.cs" t="Include" />
+              </e>
+              <e p="General" t="Include">
+                <e p="Animations.cs" t="Include" />
+                <e p="Colors.cs" t="Include" />
+                <e p="Timing.cs" t="Include" />
+              </e>
+              <e p="Player" t="Include">
+                <e p="GroundChecker.cs" t="Include" />
+              </e>
+              <e p="Sprites" t="Include">
+                <e p="FadeSprite.cs" t="Include" />
+              </e>
+              <e p="Text" t="Include">
+                <e p="FlyingNumbers.cs" t="Include" />
+                <e p="TypeWriter.cs" t="Include" />
+              </e>
+              <e p="UI" t="Include">
+                <e p="FadeImage.cs" t="Include" />
+              </e>
+              <e p="Util" t="Include">
+                <e p="Bezier.cs" t="Include" />
+                <e p="ChangeTimescale.cs" t="Include" />
+                <e p="DestroyAfterSeconds.cs" t="Include" />
+                <e p="FaceCamera.cs" t="Include" />
+                <e p="FPSDisplay.cs" t="Include" />
+                <e p="PressButtonToPause.cs" t="Include" />
+                <e p="ScreenshotTool.cs" t="Include" />
+                <e p="ScreenUtils.cs" t="Include" />
+                <e p="SetTargetFramerate.cs" t="Include" />
+              </e>
+            </e>
+            <e p="Shaders" t="Include">
+              <e p="ShaderGraph" t="Include">
+                <e p="Functions" t="Include">
+                  <e p="CustomLighting.hlsl" t="Include" />
+                </e>
+              </e>
+            </e>
+            <e p="Unitytips.txt" t="Include" />
+          </e>
+        </e>
+        <e p="Scripts" t="Include">
+          <e p="game" t="Include">
+            <e p="Config.cs" t="Include" />
+            <e p="Consts" t="Include">
+              <e p="InputStrings.cs" t="Include" />
+            </e>
+            <e p="Game.cs" t="Include" />
+            <e p="GameAudio.cs" t="Include" />
+            <e p="GameCams.cs" t="Include" />
+            <e p="GameCursor.cs" t="Include" />
+            <e p="GameItems.cs" t="Include" />
+            <e p="GameRefs.cs" t="Include" />
+            <e p="GameUI.cs" t="Include" />
+            <e p="TitleScreen.cs" t="Include" />
+          </e>
+          <e p="Player" t="Include">
+            <e p="CandleParticle.cs" t="Include" />
+            <e p="PlayerAnimation.cs" t="Include" />
+            <e p="PlayerCandle.cs" t="Include" />
+            <e p="PlayerInteraction.cs" t="Include" />
+            <e p="PlayerMovement.cs" t="Include" />
+          </e>
+          <e p="World" t="Include">
+            <e p="CreatureInteractionAreaFinishSequence.cs" t="Include" />
+            <e p="InteractionArea.cs" t="Include" />
+            <e p="InteractionAreaFinishSequence.cs" t="Include" />
+            <e p="Item.cs" t="Include" />
+            <e p="ItemData.cs" t="Include" />
+            <e p="LevelGenerator.cs" t="Include" />
+            <e p="PlantInteractionAreaFinishSequence.cs" t="Include" />
+            <e p="TreeInteractionAreaFinishSequence.cs" t="Include" />
+            <e p="WallInteractionAreaFinishSequence.cs" t="Include" />
+          </e>
+        </e>
+        <e p="TextMesh Pro" t="Include">
+          <e p="Fonts" t="Include">
+            <e p="LiberationSans - OFL.txt" t="Include" />
+          </e>
+          <e p="Resources" t="Include">
+            <e p="LineBreaking Following Characters.txt" t="Include" />
+            <e p="LineBreaking Leading Characters.txt" t="Include" />
+            <e p="Shaders" t="Include">
+              <e p="TMP_Bitmap-Custom-Atlas.shader" t="Include" />
+              <e p="TMP_Bitmap-Mobile.shader" t="Include" />
+              <e p="TMP_Bitmap.shader" t="Include" />
+              <e p="TMP_SDF Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Masking.shader" t="Include" />
+              <e p="TMP_SDF-Mobile Overlay.shader" t="Include" />
+              <e p="TMP_SDF-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface-Mobile.shader" t="Include" />
+              <e p="TMP_SDF-Surface.shader" t="Include" />
+              <e p="TMP_SDF.shader" t="Include" />
+              <e p="TMP_Sprite.shader" t="Include" />
+              <e p="TMPro.cginc" t="Include" />
+              <e p="TMPro_Properties.cginc" t="Include" />
+              <e p="TMPro_Surface.cginc" t="Include" />
+            </e>
+          </e>
+          <e p="Sprites" t="Include">
+            <e p="EmojiOne Attribution.txt" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="CandleInTheRain.sln" t="IncludeFlat" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+    </e>
+  </component>
+</project>

@@ -24,7 +24,13 @@ public class WallInteractionAreaFinishSequence : InteractionAreaFinishSequence
         {
             yield return null;
         }
+        Game.inst.ui.SetCanClickAwayText(false);
+        Game.inst.cams.DisableAllvCams();
+        Game.inst.ui.ShowText("The wall disappeared!\nI guess viewing a problem from a different perspective can make it much smaller than it actually is...");
+        yield return new WaitForSeconds(5f);
+        Game.inst.ui.HideText(true);
         Game.inst.refs.playerCandle.SetCandleActive(true);
+        Game.inst.ui.SetCanClickAwayText(true);
     }
 
     protected override void CheckFinishCondition()

@@ -61,9 +61,12 @@ public class TreeInteractionAreaFinishSequence : InteractionAreaFinishSequence
 
     public override IEnumerator FinishSequence()
     {
-        vCam.position = targetCamPosition;
         vCam.gameObject.SetActive(false);
-        yield return new WaitForSeconds(3f);
+        Game.inst.ui.SetCanClickAwayText(false);
+        Game.inst.ui.ShowText("There is indeed beauty to be found, everywhere around.");
+        yield return new WaitForSeconds(4f);
+        Game.inst.ui.HideText(true);
+        Game.inst.ui.SetCanClickAwayText(true);
     }
 
     private void AddHeartAlpha(float amount)

@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 14
   name: A perfect foundation to build upon.
-  interactText: I placed the plate on the sticks. What a lovely little shelter!
+  interactText: 'I placed the plate on the sticks.
+
+    What a lovely little shelter!'
   cantInteractText: I'm missing something...
   needsItemId: 15
   replaceItemId: 16

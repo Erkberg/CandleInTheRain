@@ -6,7 +6,9 @@ using UnityEngine;
 public class ItemData : ScriptableObject
 {
     public int id = 1;
+    [TextArea]
     public string name;
+    [TextArea]
     public string interactText;
     public string cantInteractText = "I'm missing something...";
     public int needsItemId = -1;
